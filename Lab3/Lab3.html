@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+    <h1>Shopping Cart</h1>
+
+    <FORM ACTION="b.php" method="POST">
+        <table width="100%" onchange="update()">
+            <div style="background-color:lightgreen">
+
+
+                <tr>
+                    <td>Products</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+
+            </div>
+
+
+            <tr>
+                <td width="29%">Product A</td>
+                <td width="17%">$10</td>
+                <td width="30%"><input min="0" type="number" id="aquantity" name="aquantity" style="width:30px" value="0"></input></td>
+                <td>
+                    <p id="atotal"> 0</p>
+                    <input type="hidden" id="asubtotal" name="asubtotal" value=0>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Product B</td>
+                <td>$15</td>
+                <td><input min="0" type="number" id="bquantity" name="bquantity" style="width:30px" value="0"></input>
+                </td>
+                <td>
+                    <p id="btotal"> 0</p>
+                    <input type="hidden" id="bsubtotal" name="bsubtotal" value=0>
+                </td>
+            </tr>
+            <tr>
+                <td>Product C</td>
+                <td>$20</td>
+                <td><input min="0" type="number" id="cquantity" name="cquantity" style="width:30px" value="0"></input>
+                </td>
+                <td>
+                    <p id="ctotal"> 0</p>
+                    <input type="hidden" id="csubtotal" name="csubtotal" value=0>
+                </td>
+            </tr>
+
+
+
+
+            <div style="background-color:lightgreen">
+
+                <tr>
+                    <td width="53%">
+                        <p>Total</p>
+                    </td>
+                    <td width="32%">
+                        <p id="totalquantity">0</p>
+                        <input type="hidden" id="totalnumber" name="totalnumber" value=0>
+                    </td>
+                    <td>
+                        <p id="total">0</p>
+                        <input type="hidden" id="totalvalue" name="totalvalue" value=0>
+                    </td>
+                </tr>
+
+            </div>
+
+
+            <tr>
+                <td><button type="button" id="update" onClick="update()">Update</button></td>
+                <td><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+
+    </FORM>
+
+
+    <script type="text/javascript">
+
+        function update() {
+            var atotal = document.getElementById("aquantity").value * 10;
+            var btotal = document.getElementById("bquantity").value * 15;
+            var ctotal = document.getElementById("cquantity").value * 20;
+            var quantity = Number(document.getElementById("aquantity").value) + Number(document.getElementById("bquantity").value) + Number(document.getElementById("cquantity").value);
+            var total = Number(atotal) + Number(btotal) + Number(ctotal);
+
+            document.getElementById("atotal").innerHTML = atotal;
+            document.getElementById("asubtotal").value = atotal;
+
+            document.getElementById("btotal").innerHTML = btotal;
+            document.getElementById("bsubtotal").value = btotal;
+
+            document.getElementById("ctotal").innerHTML = ctotal;
+            document.getElementById("csubtotal").value = ctotal;
+
+            document.getElementById("totalquantity").innerHTML = quantity;
+            document.getElementById("totalnumber").value = quantity;
+
+            document.getElementById("total").innerHTML = total;
+            document.getElementById("totalvalue").value = total;
+        }
+    </script>
+
+
+
+</body>
+
+</html>

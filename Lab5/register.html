@@ -1,0 +1,46 @@
+<html>
+
+<body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false">
+
+    <h2>Lab 5 Register</h2>
+
+    <form action="register.php" method="POST" oninput="validate()">
+
+        Username: <input type="text" name="username" id="username">
+        <span id="namevalid" style="color:red"></span>
+        <br /><br />
+        Password: <input type="password" name="password" id="password">
+        <span id="pwvalid" style="color:red"></span>
+        <br /><br />
+        <button id="submitbtn" type="submit" disabled>Submit</button>
+    </form>
+
+
+    <script type="text/javascript">
+
+        function validate() {
+            username = document.getElementById('username').value;
+            password = document.getElementById('password').value;
+            if (username == "") {
+                document.getElementById('submitbtn').disabled = true;
+                document.getElementById('namevalid').innerHTML = "Username must be filled out";
+            } else{
+                document.getElementById('submitbtn').disabled = false;
+                document.getElementById('namevalid').innerHTML = "";
+            }
+
+            if (password.length < 6) {
+                document.getElementById('submitbtn').disabled = true;
+                document.getElementById('pwvalid').innerHTML = "Password need to be at least 6-digit long";
+            }else{
+                document.getElementById('submitbtn').disabled = false;
+                document.getElementById('pwvalid').innerHTML = "";
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

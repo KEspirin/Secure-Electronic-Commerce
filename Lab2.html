@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+    <h1>Shopping Cart</h1>
+
+    
+    <div style="background-color:lightgreen">
+
+        <table width="100%">
+            <tr>
+                <td>Products</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <table width="100%">
+        <tr>
+            <td width="29%">Product A</td>
+            <td width="17%">$10</td>
+            <td width="30%"><input min="0" type="number" id="aquantity" style="width:30px" value="0" onchange=update()></input></td>
+            <td>
+                <p id="atotal">0</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Product B</td>
+            <td>$15</td>
+            <td><input min="0" type="number" id="bquantity" style="width:30px" value="0" onchange=update()></input></td>
+            <td>
+                <p id="btotal">0</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Product C</td>
+            <td>$20</td>
+            <td><input min="0" type="number" id="cquantity" style="width:30px" value="0" onchange=update()></input></td>
+            <td>
+                <p id="ctotal">0</p>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <div style="background-color:lightgreen">
+        <table width="90%">
+            <tr>
+                <td width="53%">
+                    <p>Total</p>
+                </td>
+                <td width="32%">
+                    <p id="totalquantity">0</p>
+                </td>
+                <td>
+                    <p id="total">0</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <table width="60%" align="right">
+        <tr>
+            <td><button type="button"id="update" onClick=update()>Update</button></td>
+            <td><button id="submit" onClick=submit()>Submit</button></td>
+        </tr>
+    </table>
+
+
+    <script>
+
+        function update() {
+            var atotal = document.getElementById("aquantity").value * 10;
+            var btotal = document.getElementById("bquantity").value * 15;
+            var ctotal = document.getElementById("cquantity").value * 20;
+            var quantity = Number(document.getElementById("aquantity").value) + Number(document.getElementById("bquantity").value) + Number(document.getElementById("cquantity").value);
+            var total = Number(atotal) + Number(btotal) + Number(ctotal);
+
+            document.getElementById("atotal").innerHTML = atotal;
+            document.getElementById("btotal").innerHTML = btotal;
+            document.getElementById("ctotal").innerHTML = ctotal;
+            document.getElementById("totalquantity").innerHTML = quantity;
+            document.getElementById("total").innerHTML = total;
+
+        }
+
+
+    </script>
+    
+
+
+</body>
+
+</html>
