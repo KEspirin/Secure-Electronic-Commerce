@@ -1,0 +1,33 @@
+<html>
+
+<head>
+
+    <script type="text/javascript" src="js/sha256.js"></script>
+
+    <script type="text/javascript" src="js/loginController.js"></script>
+
+</head>
+
+
+
+<body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false">
+
+    <h2>Lab 6 Login</h2>
+
+    <form action="../server/login.php" method="POST">
+
+        Username: <input type="text" name="username" id="username">
+        <br /><br />
+        Password: <input type="password" name="password" id="password">
+        <br /><br />
+
+        <button type="submit" onclick="hash()">Login</button>
+
+
+        <input type="hidden" id="hashpw" name="hashpw"></input>
+
+    </form>
+
+</body>
+
+</html>
