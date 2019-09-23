@@ -11,7 +11,7 @@
     $exist = 0;           
     
     //read the file line by line
-    $file = fopen("../database/database.txt","r");
+    $file = fopen("../database/users.txt","r");
         while(!feof($file))  {
 
             // get a line without the last “newline” character

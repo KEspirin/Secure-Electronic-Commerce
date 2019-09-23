@@ -9,3 +9,7 @@ function hash() {
     document.getElementById('hashpw').value = hash;
 }
 
+function register(){
+    window.open("./register.html","_self");
+}
+

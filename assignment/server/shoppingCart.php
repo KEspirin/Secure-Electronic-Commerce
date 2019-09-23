@@ -35,7 +35,7 @@
     //close the "$file"
     fclose($file);
     ?>
-    Done! Check the test.txt file.
+
 </body>
 
 </html>
