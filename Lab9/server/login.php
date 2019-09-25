@@ -24,10 +24,11 @@
             if($line[0] == $username && $username != ""){
                 
                 $privateKey = get_rsa_privatekey('private.key');
-                $decrypted = rsa_decryption($encrypted, $privateKey);
+                $decrypted = rsa_decryption($password, $privateKey);
                 $split_value = explode("&", $decrypted);
                 $timestamp = time();
-                if($line[1] == $split_value[0] && $split_value[0] != "" && (int)$timestamp - (int)$split_value[1] <= 150){
+
+                if($line[1] == $split_value[0] && $timestamp - $split_value[1] <= 150){
                     $exist = 1;
                 }
             }
@@ -37,7 +38,8 @@
         if($exist == 1){
             echo "login Sucessful! <br/><br/>Go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab9/client'>back</a> to register, login or check the users.txt";
         }else{
-            echo "Invalid username or password <br/><br/>Please try again via <a href='login.html'>login.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab9/client'>back</a> to register, try again or check the users.txt";
+            echo "Invalid username or password <br/><br/>Please try again via <a href='./client/login.html'>login.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab9/client'>back</a> to register, try again or check the users.txt";
+            echo "$password<br/>.$split_value[0].<br/>.$split_value[1].<br/>.$timestamp.<br/>";
         }
     ?>
 </body>
