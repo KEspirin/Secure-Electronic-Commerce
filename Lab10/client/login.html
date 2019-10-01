@@ -1,0 +1,28 @@
+<html>
+
+<head>
+
+    <script src="js/sha256.js"></script>
+    <script src="js/rsa.js"></script>
+    <script src="js/loginController.js" type="text/javascript"></script>
+
+</head>
+
+<body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false">
+
+    <h2>Lab 10 Login</h2>
+
+    <form action="../server/login.php" method="POST">
+
+        Username: <input type="text" name="username" id="username">
+        <br /><br />
+        Password: <input type="password" name="password" id="password">
+        <br /><br />
+
+        <input type="hidden" id="encrypted" name="encrypted"></input>
+        <button type="submit" onclick="encryption()">Login</button>
+    </form>
+
+</body>
+
+</html>
