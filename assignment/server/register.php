@@ -27,7 +27,7 @@
 
         if($exist == 1){
             echo "The user is already exist! <br/><br/>Go 
-            <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab6/client/index.html'>back</a> to login.";
+            <a href='http://titan.csit.rmit.edu.au/~s3711351/Assignment/client/index.html'>back</a> to login.";
         }else{
 
         //open a file named "database.txt"
@@ -40,7 +40,7 @@
         //close the "$file"
             fclose($file);
             echo "Registration Succeed! <br/><br/>Go 
-            <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab6/client/index.html'>back</a> to ligin";
+            <a href='http://titan.csit.rmit.edu.au/~s3711351/Assignment/client/index.html'>back</a> to ligin";
         }
     ?>
 </body>

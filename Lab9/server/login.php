@@ -28,7 +28,7 @@
                 $split_value = explode("&", $decrypted);
                 $timestamp = time();
 
-                if($line[1] == $split_value[0] && $timestamp - $split_value[1] <= 150){
+                if($line[1] == $split_value[0] && $timestamp - $split_value[1] <= 150000){
                     $exist = 1;
                 }
             }
