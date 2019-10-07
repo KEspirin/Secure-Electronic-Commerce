@@ -1,5 +1,9 @@
-<html>
+<?php
+    session_start();
+?>
 
+
+<html>
 <body>
     <?php
     
@@ -25,9 +29,12 @@
         fclose($file);
 
         if($exist == 1){
-            echo "login Sucessful! <br/><br/>Go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab6/client'>back</a> to register, login or check the users.txt";
+            $_SESSION['login'] = "YES";
+            $_SESSION['user'] = $username;
+            header('Location: ../client/shoppingCart.php');
+            echo "login Sucessful! <br/><br/>Go <a href='http://titan.csit.rmit.edu.au/~s3711351/Assignment/client/index.html'>back</a>";
         }else{
-            echo "Invalid username or password <br/><br/>Please try again via <a href='login.html'>login.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab6/client'>back</a> to register, try again or check the users.txt";
+            echo "Invalid username or password <br/><br/>Please try again via <a href='../client/index.html'>index.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/Lab10/client/register.html'>register.html</a> to register.";
         }
     ?>
 </body>

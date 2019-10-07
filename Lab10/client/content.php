@@ -2,16 +2,16 @@
 
 session_start();
 
-if(!isset($_SESSION['login'])){
+if (!isset($_SESSION['login'])) {
     header('Location: login.html');
 }
-    
+
 ?>
-    
+
 <html>
-    
+
 <body>
-<?php
+    <?php
     echo "<h2>Lab 10 content</h2>";
     echo "Hi! ";
     echo $_SESSION['user'];

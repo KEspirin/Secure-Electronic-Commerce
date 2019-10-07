@@ -1,5 +1,9 @@
 <?php include('rsa.php');?>
 
+<?php
+    session_start();
+?>
+
 <html>
 
 <body>
