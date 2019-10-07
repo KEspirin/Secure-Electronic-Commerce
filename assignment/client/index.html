@@ -3,7 +3,6 @@
 <head>
 
     <script type="text/javascript" src="js/sha256.js"></script>
-    <script type="text/javascript" src="js/loginController.js"></script>
 
 </head>
 
@@ -11,7 +10,7 @@
 
 <body oncontextmenu="event.returnValue=false" onselectstart="event.returnValue=false">
 
-    <h2>Lab 6 Login</h2>
+    <h2>Practical Assignment Login</h2>
 
     <form action="../server/login.php" method="POST">
 
@@ -28,7 +27,22 @@
         <input type="hidden" id="hashpw" name="hashpw"></input>
 
     </form>
+    <script>
+        function hash() {
+            // get user input
+            var input = document.getElementById('password').value;
 
+            // call sha256 hash function
+            var hash = SHA256.hash(input);
+
+            document.getElementById('hashpw').value = hash;
+        }
+
+        function register() {
+            window.open("./register.html", "_self");
+        }
+
+    </script>
 </body>
 
 </html>
