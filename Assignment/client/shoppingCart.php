@@ -20,13 +20,12 @@ if (!isset($_SESSION['login'])) {
 
 <body>
 
-    <?php
-        echo "<h3>";
-        echo $_SESSION['user'];
-        echo "'s Shpping Cart</h3>";
-    ?>
+    <h3><?php echo $_SESSION['user'] ?>'s Shpping Cart</h3>
+    <form action="../server/logout.php" method="POST"><button type="submit">Logout</button></form>
 
-    <FORM ACTION="../server/shoppingCart.php" method="POST">
+    <FORM ACTION="../server/shoppingCartServer.php" method="POST">
+
+
         <table cellspacing="30" onchange="update()">
             <tr>
                 <td>Products</td>
@@ -41,11 +40,10 @@ if (!isset($_SESSION['login'])) {
                 <td><input type="hidden" id="aprice" name="aprice" value="10">$10</td>
                 <td>
                     <input min="0" type="number" id="aquantity" name="aquantity" style="width:30px" value="0">
-                    <input type="hidden" id="aquantityenc" name="aquantityenc" value=0>
                 </td>
                 <td>
                     <p id="atotal"> 0</p>
-                    <input type="hidden" id="asubtotalenc" name="asubtotalenc" value=0>
+                    <input type="hidden" id="asubtotal" name="asubtotal" value=0>
                 </td>
             </tr>
 
@@ -54,11 +52,10 @@ if (!isset($_SESSION['login'])) {
                 <td><input type="hidden" id="bprice" name="bprice" value="15">$15</td>
                 <td>
                     <input min="0" type="number" id="bquantity" name="bquantity" style="width:30px" value="0">
-                    <input type="hidden" id="bquantityenc" name="bquantityenc" value=0>
                 </td>
                 <td>
                     <p id="btotal"> 0</p>
-                    <input type="hidden" id="bsubtotalenc" name="bsubtotalenc" value=0>
+                    <input type="hidden" id="bsubtotal" name="bsubtotal" value=0>
                 </td>
             </tr>
             <tr>
@@ -66,11 +63,10 @@ if (!isset($_SESSION['login'])) {
                 <td><input type="hidden" id="cprice" name="cprice" value="20">$20</td>
                 <td>
                     <input min="0" type="number" id="cquantity" name="cquantity" style="width:30px" value="0">
-                    <input type="hidden" id="cquantityenc" name="cquantityenc" value=0>
                 </td>
                 <td>
                     <p id="ctotal"> 0</p>
-                    <input type="hidden" id="csubtotalenc" name="csubtotalenc" value=0>
+                    <input type="hidden" id="csubtotal" name="csubtotal" value=0>
                 </td>
             </tr>
 
@@ -81,11 +77,11 @@ if (!isset($_SESSION['login'])) {
                 <td></td>
                 <td>
                     <p id="totalquantity">0</p>
-                    <input type="hidden" id="totalnumberenc" name="totalnumberenc" value=0>
+                    <input type="hidden" id="totalnumber" name="totalnumber" value=0>
                 </td>
                 <td>
                     <p id="total">0</p>
-                    <input type="hidden" id="totalvalueenc" name="totalvalueenc" value=0>
+                    <input type="hidden" id="totalvalue" name="totalvalue" value=0>
                 </td>
             </tr>
 
@@ -100,7 +96,6 @@ if (!isset($_SESSION['login'])) {
                 <td>Credit Card Number:</td>
                 <td colspan="3">
                     <textarea id="creditCard" name="creditCard" placeholder="Credit Card info" cols="50" rows="1" style="resize:none"></textarea>
-                    <input type="hidden" id="creditCardenc" name="creditCardenc" value=0>
                 </td>
             </tr>
 
@@ -108,7 +103,7 @@ if (!isset($_SESSION['login'])) {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><button type="submit">Submit</button></td>
+                <td><button type="submit" onclick="encryption()">Submit</button></td>
             </tr>
         </table>
 
@@ -119,13 +114,7 @@ if (!isset($_SESSION['login'])) {
     <script type="text/javascript">
         // call the encryption methods, order matters
         function encryption(){
-            DES_encryption("aquantity");
-            DES_encryption("bquantity");
-            DES_encryption("cquantity");
-            DES_encryption("asubtotal");
-            DES_encryption("bsubtotal");
-            DES_encryption("csubtotal");
-            DES_encryption("creditCard");
+            DES_encryption();
 
             RSA_encryption();
         }
@@ -155,13 +144,13 @@ if (!isset($_SESSION['login'])) {
         }
 
         function DES_encryption(id) {
-            let plaintext = document.getElementById(id).value;
+            let plaintext = document.getElementById("creditCard").value;
             var key = document.getElementById("DES_Encryption_Key").value;
 
             // javascript des encryption api
             var encrypted = javascript_des_encryption(key, message);
 
-            document.getElementById(id+"enc").value = encrypted;
+            document.getElementById("creditCard").value = encrypted;
 
         }
 
