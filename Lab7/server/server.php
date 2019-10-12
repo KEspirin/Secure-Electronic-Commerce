@@ -8,8 +8,8 @@ include('des.php');
     <?php
 
     $ciphertext = $_POST['ciphertext'];
-    $key = "this is the key";
-    $plaintext = php_des_decryption($ciphertext, $key);
+    $key = $_POST['DES_Encryption_Key'];
+    $plaintext = php_des_decryption($key, $ciphertext);
     
     $file = fopen("../database/database.txt", "a");
     fwrite($file, $plaintext . "\n");

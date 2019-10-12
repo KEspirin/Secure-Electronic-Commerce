@@ -28,7 +28,7 @@
 
         if($exist == 1){
             echo "The user is already exist! <br/><br/>Go 
-            <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/index.html'>back</a> to login.";
+            <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/login.html'>back</a> to login.";
         }else{
 
         //open a file named "database.txt"
@@ -39,15 +39,9 @@
             fwrite($file,$password."\n");
         //close the "$file"
             fclose($file);
-
-        // create a file named after the username to store shopping cart info
-            $shoppingCart = "../database/".$username.".txt";
-            $shoppingCartdb = fopen($shoppingCart,"w");
-            fclose($shoppingCart);
-
             
             echo "Registration Succeed! <br/><br/>Go 
-            <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/index.html'>back</a> to login";
+            <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/login.html'>back</a> to login";
         }
     ?>
 </body>

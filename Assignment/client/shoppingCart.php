@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['login'])) {
-    header('Location: index.html');
+    header('Location: login.html');
 }
 ?>
 
@@ -89,7 +89,8 @@ if (!isset($_SESSION['login'])) {
 
             <tr>
                 <td>Your DES Key:</td>
-                <td colspan="3"><textarea id="DES_Encryption_Key" name="DES_Encryption_Key" placeholder="Please Enter Your DES Key Here" cols="50" rows="1" style="resize:none"></textarea></td>
+                <td colspan="3"><textarea id="DES_Encryption_Key" name="DES_Encryption_Key" placeholder="Please Enter Your DES Key Here" cols="50" rows="1" style="resize:none"></textarea>
+                </td>
             </tr>
 
             <tr>
@@ -113,7 +114,7 @@ if (!isset($_SESSION['login'])) {
     <script type="text/javascript" src="js/rsa.js"></script>
     <script type="text/javascript">
         // call the encryption methods, order matters
-        function encryption(){
+        function encryption() {
             DES_encryption();
             RSA_encryption();
         }
@@ -143,7 +144,7 @@ if (!isset($_SESSION['login'])) {
         }
 
         function DES_encryption() {
-            let plaintext = document.getElementById("creditCard").value;
+            let message = document.getElementById("creditCard").value;
             var key = document.getElementById("DES_Encryption_Key").value;
 
             // javascript des encryption api
@@ -164,9 +165,6 @@ if (!isset($_SESSION['login'])) {
 
             document.getElementById("DES_Encryption_Key").value = encrypted;
         }
-
-
-
     </script>
 
 </body>

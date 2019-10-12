@@ -32,9 +32,9 @@
             $_SESSION['login'] = "YES";
             $_SESSION['user'] = $username;
             header('Location: ../client/shoppingCart.php');
-            echo "login Sucessful! <br/><br/>Go <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/index.html'>back</a>";
+            echo "login Sucessful! <br/><br/>Go <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/login.html'>back</a>";
         }else{
-            echo "Invalid username or password <br/><br/>Please try again via <a href='../client/index.html'>index.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/register.html'>register.html</a> to register.";
+            echo "Invalid username or password <br/><br/>Please try again via <a href='../client/login.html'>login.html</a><br/><br/> or go <a href='http://titan.csit.rmit.edu.au/~s3711351/assignment/client/register.html'>register</a> to register.";
         }
     ?>
 </body>

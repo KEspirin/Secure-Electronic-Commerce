@@ -7,12 +7,13 @@
 
 	Enter a Message: <input id="message" type="text">
 	<br><br>
+
+
+	<form action="../server/server.php" method="POST"></form>
 	Select a DES encryption key: <input id="DES_Encryption_Key" type="text">
 	<br><br>
-
-	<form action="../server/server.php" method="POST">
-		<input type="hidden" id="ciphertext" name="ciphertext">
-		<button type="submit" onclick="DES_encryption()">Encrypt the Message</button>
+	<input type="hidden" id="ciphertext" name="ciphertext">
+	<button type="submit" onclick="DES_encryption()">Encrypt the Message</button>
 	</form>
 
 
