@@ -115,7 +115,6 @@ if (!isset($_SESSION['login'])) {
         // call the encryption methods, order matters
         function encryption(){
             DES_encryption();
-
             RSA_encryption();
         }
 
@@ -143,7 +142,7 @@ if (!isset($_SESSION['login'])) {
             document.getElementById("totalvalue").value = total;
         }
 
-        function DES_encryption(id) {
+        function DES_encryption() {
             let plaintext = document.getElementById("creditCard").value;
             var key = document.getElementById("DES_Encryption_Key").value;
 

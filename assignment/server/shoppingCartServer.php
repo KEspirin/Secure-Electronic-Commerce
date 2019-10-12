@@ -4,7 +4,6 @@ if (!isset($_SESSION['login'])) {
     header('Location: ../client/index.html');
 }
 
-unset($_SESSION['login']);
 include('des.php');
 include('rsa.php');
 ?>
@@ -28,38 +27,38 @@ include('rsa.php');
 
         //open a file named "text.txt";
         $file = fopen("../database/orders.txt", "a");
-        $anything = "\n ---------------------------------------------------------------------------";
+
+        $anything = "Client: ".$_SESSION['user']."\n";
         fwrite($file,$anything);
-        $anything = $_POST['aquantity'];
+
+        $anything = "Order Quantity Information:\n";
         fwrite($file,$anything);
-        $anything = ",";
+
+        $anything = "Product A: ".$_POST['aquantity']." ($10 each)\n";
         fwrite($file,$anything);
-        $anything = $_POST['asubtotal'];
+
+        $anything = "Product B: ".$_POST['bquantity']." ($15 each)\n";
         fwrite($file,$anything);
-        $anything = "\n productb,15,";
+
+        $anything = "Product C: ".$_POST['cquantity']." ($20 each)\n";
         fwrite($file,$anything);
-        $anything = $_POST['bquantity'];
+
+        $anything = "Total Price: ".$_POST['totalvalue']."\n";
         fwrite($file,$anything);
-        $anything = ",";
+
+        $anything = "Credit Card Number: ".$CCNO."\n";
         fwrite($file,$anything);
-        $anything = $_POST['bsubtotal'];
-        fwrite($file,$anything);
-        $anything = "\n productc,20,";
-        fwrite($file,$anything);
-        $anything = $_POST['cquantity'];
-        fwrite($file,$anything);
-        $anything = ",";
-        fwrite($file,$anything);
-        $anything = $_POST['csubtotal'];
-        fwrite($file,$anything);
-        $anything = "\n";
+
+        $anything = "---------------------------------------------------------------------------";
         fwrite($file,$anything);
         //close the "$file"
         fclose($file);
+
+        unset($_SESSION['login']);
     ?>
     <br/><br/>
 
-    <table cellspacing="30" onchange="update()">
+    <table cellspacing="30">
             <tr>
                 <td>Products</td>
                 <td>Price</td>
@@ -104,15 +103,7 @@ include('rsa.php');
         <span>Received Encrypted Credit Card Number:<?php echo $_POST['creditCard']; ?></span><br>
         <span>Recovered Credit Card Number:<?php echo $CCNO; ?></span><br>
         <p>You can now go to <a href="../database/orders.txt">database</a> to check this order information.</p>
-
-
-
-
-
-
-
     
-
 </body>
 
 </html>
