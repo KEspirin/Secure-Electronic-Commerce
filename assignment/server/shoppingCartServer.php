@@ -46,6 +46,8 @@ fwrite($file, $anything);
 //close the "$file"
 fclose($file); 
 
+unset($_SESSION['login']);
+
 ?>
 
 <html>
@@ -99,9 +101,7 @@ fclose($file);
     <span>Recovered DES Key:<?php echo $desKey; ?></span><br>
     <span>Received Encrypted Credit Card Number:<?php echo $_POST['creditCard']; ?></span><br>
     <span>Recovered Credit Card Number:<?php echo $CCNO; ?></span><br>
-    <!-- <p>You can now go to <a href="../database/orders.txt">database</a> to check this order information.</p> -->
-
-    <form action="logout.php" method="POST"><button type="submit">Logout</button></form>
+    <p>You can now go to <a href="../database/">database</a> to check this order information.</p>
 
 </body>
 

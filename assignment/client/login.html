@@ -20,8 +20,6 @@
         <br /><br />
 
         <button type="submit" onclick="hash()">Login</button>
-        <span></span>
-        <button type="button" onclick="register()">Register</button>
 
 
         <input type="hidden" id="hashpw" name="hashpw"></input>
@@ -39,11 +37,6 @@
             var hash = SHA256.hash(input);
 
             document.getElementById('hashpw').value = hash;
-        }
-
-        // used to direct to register page
-        function register() {
-            window.open("./register.html", "_self");
         }
 
     </script>
